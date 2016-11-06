@@ -91,7 +91,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;]">
+  <body class="index" data-languages="[&quot;HTTP&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -101,7 +101,7 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="HTTP">HTTP</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -116,12 +116,191 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="coming-soon">Coming soon!</h1>
+        <h1 id="introduction">Introduction</h1>
+
+<p>Welcome to the TeamMood API! You can use our API to access TeamMood&rsquo;s app endpoints, which can get information on the data of your team.</p>
+
+<h1 id="authentication">Authentication</h1>
+
+<p>TeamMood uses an API key to allow access to the API. </p>
+
+<p>Just grab your API key under the &lsquo;API Settings&rsquo; menu item after <a href="https://app.teammood.com/login">logging in on TeamMood</a>.</p>
+
+<h1 id="moods">Moods</h1>
+
+<h2 id="get-all-moods">Get All Moods</h2>
+<pre class="highlight plaintext"><code>curl "https://app.teammood.com/api/{API_KEY}/moods"
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"teamName"</span><span class="p">:</span><span class="s2">"Demo"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"tags"</span><span class="p">:[</span><span class="w">
+      </span><span class="s2">"Group C"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Group B"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Group A"</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"days"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"date"</span><span class="p">:</span><span class="s2">"Sunday, November 6, 2016"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"today"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"dateShort"</span><span class="p">:</span><span class="s2">"Sun 11/6/16"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"nativeDate"</span><span class="p">:</span><span class="mi">1478386800000</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"values"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"mood"</span><span class="p">:</span><span class="s2">"good"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"tags"</span><span class="p">:[</span><span class="w">
+                  </span><span class="s2">"Group C"</span><span class="w">
+               </span><span class="p">],</span><span class="w">
+               </span><span class="nt">"comment"</span><span class="p">:</span><span class="s2">"A Good Day today!"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"mood"</span><span class="p">:</span><span class="s2">"good"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"tags"</span><span class="p">:[</span><span class="w">
+                  </span><span class="s2">"Group C"</span><span class="w">
+               </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"mood"</span><span class="p">:</span><span class="s2">"good"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"tags"</span><span class="p">:[</span><span class="w">
+                  </span><span class="s2">"Group A"</span><span class="w">
+               </span><span class="p">],</span><span class="w">
+               </span><span class="nt">"comment"</span><span class="p">:</span><span class="s2">"Some jokes around!"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"date"</span><span class="p">:</span><span class="s2">"Saturday, November 5, 2016"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"today"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"dateShort"</span><span class="p">:</span><span class="s2">"Sat 11/5/16"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"nativeDate"</span><span class="p">:</span><span class="mi">1478300400000</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"values"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"mood"</span><span class="p">:</span><span class="s2">"average"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"tags"</span><span class="p">:[</span><span class="w">
+                  </span><span class="s2">"Group C"</span><span class="w">
+               </span><span class="p">],</span><span class="w">
+               </span><span class="nt">"comment"</span><span class="p">:</span><span class="s2">"Some days are better than others"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"date"</span><span class="p">:</span><span class="s2">"Friday, November 4, 2016"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"today"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"dateShort"</span><span class="p">:</span><span class="s2">"Fri 11/4/16"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"nativeDate"</span><span class="p">:</span><span class="mi">1478214000000</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"values"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"mood"</span><span class="p">:</span><span class="s2">"average"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"tags"</span><span class="p">:[</span><span class="w">
+                  </span><span class="s2">"Group A"</span><span class="w">
+               </span><span class="p">],</span><span class="w">
+               </span><span class="nt">"comment"</span><span class="p">:</span><span class="s2">"Issues with my computer!"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"mood"</span><span class="p">:</span><span class="s2">"average"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"tags"</span><span class="p">:[</span><span class="w">
+                  </span><span class="s2">"Group C"</span><span class="w">
+               </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all moods of a team.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://app.teammood.com/api/{API_KEY}/moods</code></p>
+
+<aside class="notice">By default, it retrieves all the moods for the last 30 days.</aside>
+
+<h3 id="optional-query-parameters">Optional Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start</td>
+<td>The selection start date.</td>
+</tr>
+<tr>
+<td>end</td>
+<td>The selection end date.</td>
+</tr>
+<tr>
+<td>since</td>
+<td>Retrieve the moods for the &#39;since&rsquo; number of days.</td>
+</tr>
+</tbody></table>
+
+<h3 id="results-attributes">Results Attributes</h3>
+
+<p>Here are some not-so-obvious attributes.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>mood</td>
+<td>The value of the mood. Either <code class="prettyprint">excellent</code>, <code class="prettyprint">good</code>, <code class="prettyprint">average</code>, <code class="prettyprint">bad</code> or <code class="prettyprint">hard</code>.</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>Optional, the comment given by the user.</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<p>The endpoint uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request &ndash; Your request is incorrect</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found &ndash; The specified team could not be found, your API Key is wrong</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&rsquo;m a teapot</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+<h3 id="example-query">Example Query</h3>
+
+<p>Last moods for 10 days: <a href="https://app.teammood.com/api/demo-en/moods?since=10">https://app.teammood.com/api/demo-en/moods?since=10</a></p>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="HTTP">HTTP</a>
           </div>
       </div>
     </div>
