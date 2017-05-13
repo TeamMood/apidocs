@@ -138,9 +138,18 @@
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
    </span><span class="nt">"teamName"</span><span class="p">:</span><span class="s2">"Demo"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"tags"</span><span class="p">:[</span><span class="w">
-      </span><span class="s2">"Group C"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Group B"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Group A"</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Group C"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"occurences"</span><span class="p">:</span><span class="mi">12</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Group B"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"occurences"</span><span class="p">:</span><span class="mi">8</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Group A"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"occurences"</span><span class="p">:</span><span class="mi">9</span><span class="w">
+      </span><span class="p">}</span><span class="w">
    </span><span class="p">],</span><span class="w">
    </span><span class="nt">"days"</span><span class="p">:[</span><span class="w">
       </span><span class="p">{</span><span class="w">
@@ -239,6 +248,10 @@
 <td>since</td>
 <td>Retrieve the moods for the &#39;since&rsquo; number of days.</td>
 </tr>
+<tr>
+<td>tag</td>
+<td>Filter by tag. Could be set several times (see example below)</td>
+</tr>
 </tbody></table>
 
 <h3 id="results-attributes">Results Attributes</h3>
@@ -293,9 +306,15 @@
 </tr>
 </tbody></table>
 
-<h3 id="example-query">Example Query</h3>
+<h3 id="example-queries">Example Queries</h3>
 
-<p>Last moods for 10 days: <a href="https://app.teammood.com/api/demo-en/moods?since=10">https://app.teammood.com/api/demo-en/moods?since=10</a></p>
+<p>Last moods for the last 10 days: </p>
+
+<p><code class="prettyprint">https://app.teammood.com/api/{API_KEY}/moods?since=10</code></p>
+
+<p>Moods filtered by tags <code class="prettyprint">Paris</code> and <code class="prettyprint">New York</code>: </p>
+
+<p><code class="prettyprint">https://app.teammood.com/api/{API_KEY}/moods?tag=Paris&amp;tag=New%20York</code></p>
 
       </div>
       <div class="dark-box">
