@@ -37,9 +37,18 @@ curl "https://app.teammood.com/api/{API_KEY}/moods"
 {
    "teamName":"Demo",
    "tags":[
-      "Group C",
-      "Group B",
-      "Group A"
+      {
+        "name":"Group C",
+        "occurences":12
+      },
+      {
+        "name":"Group B",
+        "occurences":8
+      },
+      {
+        "name":"Group A",
+        "occurences":9
+      }
    ],
    "days":[
       {
@@ -125,6 +134,7 @@ Parameter | Description
 start | The selection start date.
 end | The selection end date.
 since  | Retrieve the moods for the 'since' number of days.
+tag | Filter by tag. Could be set several times (see example below)
 
 ### Results Attributes
 
@@ -148,9 +158,16 @@ Error Code | Meaning
 500 | Internal Server Error -- We had a problem with our server. Try again later.
 503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
 
-### Example Query
+### Example Queries
 
-Last moods for 10 days: [https://app.teammood.com/api/demo-en/moods?since=10](https://app.teammood.com/api/demo-en/moods?since=10)
+Last moods for the last 10 days: 
+
+`https://app.teammood.com/api/{API_KEY}/moods?since=10`
+
+Moods filtered by tags `Paris` and `New York`: 
+
+`https://app.teammood.com/api/{API_KEY}/moods?tag=Paris&tag=New%20York`
+
 
 
 
