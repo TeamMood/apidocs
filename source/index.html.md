@@ -131,8 +131,8 @@ This endpoint retrieves all moods of a team.
 
 Parameter | Description
 --------- | -----------
-start | The selection start date.
-end | The selection end date.
+start | The selection start date (format 'dd-MM-YYYY').
+end | The selection end date (format 'dd-MM-YYYY').
 since  | Retrieve the moods for the 'since' number of days.
 tag | Filter by tag. Could be set several times (see example below)
 
